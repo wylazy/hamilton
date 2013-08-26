@@ -1,0 +1,123 @@
+html,
+body {
+	height: 100%;
+	border: 1px;
+}
+
+#footer {
+	height: 60px;
+	width: 100%;
+	background-color: #ddd;
+	position: absolute;
+	bottom: 0;
+}
+
+#main-body {
+	position: relative; 
+	min-height: 100%;
+  background: #fbfbfb url('../img/fange.png') 
+}
+
+#main-inner {
+	padding: 20px 0 80px 0;
+}
+
+.item-abs {
+  padding: 1em 1em;
+  background: #fff;
+  margin-bottom: 3em;
+}
+
+.shadow {
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.sidebar {
+  margin-left: 3em;
+}
+
+.tags-list {
+  padding: 1em 1em;
+  background: #fff;
+}
+
+.tags-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.5;
+  border-bottom: 1px dotted #875;
+}
+
+.tags-item {
+  line-height: 1.5;
+}
+
+.tags-span {
+  height: 2.5em;
+  display: inline-block;
+  margin:0 1em;
+}
+
+/*publis.html*/
+.tags-checkbox {
+  padding: 0.5em 0; 
+}
+
+.footer-credit {
+	max-width: 30em;
+	margin: 20px auto;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+/*详情页*/
+.edit-article {
+	padding: 10px;
+	margin: 30px;
+	float: right;
+}
+
+.submit-btn {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.white-container {
+  padding: 0 1em;
+  background-color: #fff;
+}
+
+.comment-container {
+  padding: 1em 0;
+}
+
+
+#comment-input {
+  width: 100%;
+}
+
+.comment-btn {
+  position: absolute;
+  right: 1em;
+  bottom: 0.5em;
+}
+
+.comment-item {
+  position: relative;
+  min-height: 4em;
+  border: 1px dotted #aaa;
+  padding: 0.5em 7em 0.5em 0.5em;
+  margin: 1em 0;
+}

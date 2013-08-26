@@ -1,0 +1,26 @@
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse"
+        data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+        class="icon-bar"></span> <span class="icon-bar"></span>
+      </a> <a class="brand" href="/">Wylazy的博客</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li {% if active == "home" %} class="active" {% endif %} ><a href="/">主页</a></li>
+      {% if session.get('userid') %}
+          <li {% if active == "publish" %} class="active" {% endif %} ><a href="/admin/publish">发布博客</a></li>
+      {% endif%}
+          <li {% if active == "about" %} class="active" {% endif %} ><a href="/about">关于</a></li>
+          <li {% if active == "contact" %} class="active" {% endif %} ><a href="/contact">联系我</a></li>
+        </ul>
+      {% if session.get('userid') %}
+        <div class="pull-right">
+          <a class="btn" href="/admin/logout">注销</a>
+        </div>
+      {% endif%}
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

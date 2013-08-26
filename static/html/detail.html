@@ -1,0 +1,52 @@
+<!doctype>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>publish</title>
+    <link href='../css/bootstrap.css' rel='stylesheet' type='text/css' /> 
+    <link href='../css/bootstrap-responsive.css' rel='stylesheet' type='text/css' /> 
+    <link href='../css/common.css' rel='stylesheet' type='text/css' />
+    <link href='../css/syntaxhighlighter/shCore.css' rel='stylesheet' type='text/css' />
+    <link href='../css/syntaxhighlighter/shThemeDefault.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div id="main-body">
+      <div id="main-inner" class="container">
+        <div class="span9">
+          <h3><a href="detail">百度首页</a></h3>
+            演示代码
+            <pre class="brush: cpp">
+              for (int i = 0; i &lt 10; i++) {
+                 printf("%d\n", i);
+              }
+            </pre>
+            演示结束
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='../js/jquery-1.8.3.js'></script>
+  <script src='../js/bootstrap.js'></script>
+
+  <script src='../js/syntaxhighlighter/shCore.js'></script>
+  <script src='../js/syntaxhighlighter/shAutoloader.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushCss.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushPython.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushPlain.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushXml.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushPhp.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushCpp.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushJScript.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushSql.js'></script>
+  <script src='../js/syntaxhighlighter/shBrushJava.js'></script>
+
+  <script>
+    jQuery(function ($){
+      SyntaxHighlighter.config.clipboardSwf = 'js/clipboard.swf'; 
+      SyntaxHighlighter.defaults['quick-code'] = false;
+      SyntaxHighlighter.defaults['toolbar'] = false;
+      SyntaxHighlighter.all();
+    });
+  </script>
+</html>

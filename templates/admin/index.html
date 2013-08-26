@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>测试网页</title>
+    {% include 'common/commoncss.html' %}
+  </head>
+
+  <body>
+    <form action = 'upload' method="POST" enctype=multipart/form-data>
+      选择文件<input type="file" name="upfile"/>
+      <br />
+      <input type="SUBMIT" value="上传" >
+    </form>
+    <p></p>
+  </body>
+  <script>
+    $(function () {
+
+    });
+  </script>
+</html>

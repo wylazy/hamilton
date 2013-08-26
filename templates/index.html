@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Wylazy的博客</title>
+    {% include 'common/commoncss.html' %}
+  </head>
+  <body>
+    <div id="main-body">
+      {% include 'common/banner.html' %}
+
+      <div id="main-inner" class="container">
+        <div class="span9">
+        {% for article in article_list %}
+          <article class="shadow item-abs">
+            <h3><a href="detail?articleId={{article.id}}">{{article.title}}</a></h3>
+            <div>{{ article_dic[article.id]|safe}}</div>
+            <a href="detail?articleId={{article.id}}">Read more...</a>
+          </article>
+        {% endfor %}
+        </div>
+
+        <div class="span2 sidebar">
+          {% include 'common/taglist.html' %}
+        </div>
+      </div>
+
+      {% include 'common/footer.html' %}
+    </div>
+  </body>
+</html>

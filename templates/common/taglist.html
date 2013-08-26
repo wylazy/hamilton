@@ -1,0 +1,8 @@
+<div class="shadow tags-list">
+  <div class="tags-title">标签</div>
+{% for tag_aggr in tag_list %}
+  <div>
+    <a href="/tags?tagid={{tag_aggr.tag_id}}" class="tags-item">{{tag_aggr.tag_name}}({{tag_aggr.count}})</a>
+  </div>
+{% endfor %}
+</div>

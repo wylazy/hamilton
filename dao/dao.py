@@ -6,6 +6,7 @@ from bae.api import logging
 
 from database.database import db_session
 from model.user import User
+from model.paging import PAGE_SIZE
 from model.tags import Tags
 from model.comment import Comment
 from model.taged_article import TagedArticle
@@ -21,8 +22,9 @@ def get_all_tags() :
 """
 查询某个标签下的全部文章
 """
-def get_taged_articles(tag_id) :
-   return db_session.query(Article).join(TagedArticle, TagedArticle.article_id == Article.id).filter(TagedArticle.tag_id == tag_id).order_by(Article.id).all()
+def get_taged_articles(tag_id, offset) :
+   query = db_session.query(Article).join(TagedArticle, TagedArticle.article_id == Article.id).filter(and_(TagedArticle.tag_id == tag_id, Article.title != ''))
+   return query.count(), query.order_by(desc(Article.id)).offset(offset).limit(PAGE_SIZE)
 
 """
 查询全部标签，以及这个标签下有多少文章

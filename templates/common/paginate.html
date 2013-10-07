@@ -1,0 +1,23 @@
+{% if paging.min_page != paging.max_page %}
+<center>
+  <div class="pagination">
+    <ul>
+      {% if paging.cur_page != 1 %}
+      <li class="active"><a href="?page=1{{paging.args}}">&laquo;</a></li>
+      {% endif %}
+  
+      {% for idx in range(paging.min_page, paging.max_page+1) %}
+        {% if paging.cur_page == idx %}
+          <li class="disabled"><a href="?page={{idx}}{{paging.args}}">{{idx}}</a></li>
+        {% else %}
+          <li class="active"><a href="?page={{idx}}{{paging.args}}">{{idx}}</a></li>
+        {% endif %}
+      {% endfor %}
+  
+      {% if paging.cur_page != paging.max_page %}
+      <li class="active"><a href="?page={{paging.max_page}}{{paging.args}}">&raquo;</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</center>
+{% endif %}

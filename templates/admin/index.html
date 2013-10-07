@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'>
-    <title>测试网页</title>
+    <meta charset="UTF-8">
+    <title>Wylazy的博客</title>
     {% include 'common/commoncss.html' %}
   </head>
-
   <body>
-    <form action = 'upload' method="POST" enctype=multipart/form-data>
-      选择文件<input type="file" name="upfile"/>
-      <br />
-      <input type="SUBMIT" value="上传" >
-    </form>
-    <p></p>
-  </body>
-  <script>
-    $(function () {
+    <div id="main-body">
+      {% include 'common/banner.html' %}
 
-    });
-  </script>
+      <div id="main-inner" class="container">
+        <div class="span9">
+        {% for draft in draft_list %}
+          <article class="shadow item-abs">
+            <h3><a href="draft?draftId={{draft.id}}">{{draft.title}}</a></h3>
+            <div>{{ draft_dic[draft.id]|safe}}</div>
+            <a href="draft?draftId={{draft.id}}">Read more...</a>
+          </article>
+        {% endfor %}
+
+        </div>
+
+      </div>
+
+      {% include 'common/footer.html' %}
+    </div>
+  </body>
 </html>

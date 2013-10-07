@@ -8,6 +8,7 @@ from bae.core.wsgi import WSGIApplication
 from bae.api import bcs
 
 from admin.admin import admin
+from oauth.oauth import oauth
 from intro import intro
 from database.database import init_db, db_session
 
@@ -21,6 +22,7 @@ app.secret_key = 'b8Ge798&32hLiPA /*z!~/ogiu921'
 
 app.register_blueprint(intro, url_prefix = '/')
 app.register_blueprint(admin, url_prefix = '/admin')
+app.register_blueprint(oauth, url_prefix = '/oauth')
 
 application = WSGIApplication(app)
 

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{{article.title}}</title>
+    <title>{{draft.title}}</title>
 
     {% include 'common/commoncss.html' %}
     <link href='http://bcs.duapp.com/hamilton-000000/static/css/syntaxhighlighter/shCore.css' rel='stylesheet' type='text/css' />
@@ -14,17 +14,18 @@
 
       <div id="main-inner" class="container">
 
-      {% if session.get('is_admin') %}
         <div class="edit-article">
-              <a class="btn btn-large btn-primary" href="/admin/delete?articleId={{article.id}}">删除</a>
+          <a class="btn btn-large btn-primary" href="/admin/delete?draftId={{draft.id}}">删除</a>
         </div>
         <div class="edit-article">
-              <a class="btn btn-large btn-primary" href="/admin/edit?articleId={{article.id}}">修改</a>
+          <a class="btn btn-large btn-primary" href="/admin/edit?articleId={{draft.article_id}}">修改</a>
         </div>
-      {% endif %}
+        <div class="edit-article">
+          <a class="btn btn-large btn-primary" href="/admin/publish?articleId={{draft.article_id}}">发布</a>
+        </div>
 
         <div class="span9 shadow white-container">
-          <h3><a href="detail?articleId={{article.id}}">{{article.title}}</a></h3>
+          <h3><a href="draft?draftId={{draft.id}}">{{draft.title}}</a></h3>
           {% if tag_list %}
           <div class="clearfix">
             <p class="tags-span">标签：</p>
@@ -33,28 +34,8 @@
             {% endfor %}
           </div>
           {% endif %}
-          <div>{{article.content|safe}}</div>
+          <div>{{draft.content|safe}}</div>
 
-          <br />
-
-          {% if not session.get('username') %}
-            {% include 'common/social_login.html' %}
-          {% endif %}
-
-          <div class="comment-item">
-            <textarea id="comment-input" rows="3" placeholder="添加评论"></textarea>
-            <button class="btn comment-btn">回复</button>
-          </div>
-
-          <div class="comment-container">
-          {% for comment in comments %}
-            <div class="comment-item clearfix">
-              <img class="fl head_img" src="{{comment.user_url}}">
-              {{comment.user_name}}：{{comment.content}}
-              <button class="btn comment-btn">回复</button>
-            </div>
-          {% endfor %}
-         </div>
        </div>
     </div>
           
@@ -82,44 +63,10 @@
         SyntaxHighlighter.all();
       }
 
-      function getUrlParm( name ) {
-        var regexS = "[\\?&]"+name+"=([^&#]*)" ;
-        var regex = new RegExp(regexS) ;
-        var tmpURL = window.location.href ;
-        var results = regex.exec(tmpURL) ;
-        if( results == null ) {
-          return "" ;
-        } else {
-          return results[1] ;
-        }
-      }
-
-      function add_comment() {
-        var data = new Object();
-        data['articleId'] = getUrlParm('articleId');
-        data['content'] = $('#comment-input').val();
-
-        $.post(
-          '/comment',
-          data,
-          function (data) {
-            if (data.state) {
-              window.location.reload();
-            } else {
-              alert('回复失败：' + data.message);
-            }
-          },
-          'json').fail(function (data) {
-            alert('回复失败');
-          });
-      }
-
       $(function (){
         update_syntax();
-        $('.comment-btn').click(add_comment);
       });
 
-      
     </script>
   </body>
 </html>

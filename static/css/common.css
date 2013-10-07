@@ -84,14 +84,17 @@ body {
 
 /*详情页*/
 .edit-article {
-	padding: 10px;
-	margin: 30px;
+	margin: 10px;
 	float: right;
 }
 
 .submit-btn {
   display: inline-block;
   margin-top: 10px;
+}
+
+.head_img {
+  margin-right: 1em;
 }
 
 .white-container {
@@ -120,4 +123,14 @@ body {
   border: 1px dotted #aaa;
   padding: 0.5em 7em 0.5em 0.5em;
   margin: 1em 0;
+}
+
+.pagination ul>.disabled>a {
+  pointer-events: none;
+  cursor: default;
+}
+
+.pagination ul>li>a:hover, .pagination ul>li>a:focus, .pagination ul>.active>a, .pagination ul>.active>span {
+  cursor: pointer;
+  background-color: #fff;
 }
